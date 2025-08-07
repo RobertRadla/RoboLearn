@@ -1,8 +1,8 @@
 
 
-const docker = {
+const spanelstina = {
   
-  name: 'Chemie',
+  name: 'Španělština',
   
   lessons: [
     
@@ -18,7 +18,10 @@ const docker = {
         },
       ],
     },
-],
+
+
+
+  ],
 }
 
-export default docker
+export default spanelstina

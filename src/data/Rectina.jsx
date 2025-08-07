@@ -1,8 +1,8 @@
 
 
-const docker = {
+const rectina = {
   
-  name: 'Chemie',
+  name: 'Řečtina',
   
   lessons: [
     
@@ -18,7 +18,10 @@ const docker = {
         },
       ],
     },
-],
+
+
+
+  ],
 }
 
-export default docker
+export default rectina

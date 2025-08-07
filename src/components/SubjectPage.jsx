@@ -3,11 +3,18 @@ import Subjects from '../data/Subjects'
 import chemie from '../data/Chemie'
 import docker from '../data/Docker'
 import ucetnictvi from '../data/Ucetnictvi'
+import spanelstina from '../data/Spanelstina'
+import rectina from '../data/Rectina'
+import tailwind from '../data/Tailwind'
 
 const subjectDataMap = {
   chemie,
   docker,
   ucetnictvi,
+  spanelstina,
+  rectina,
+  tailwind,
+
 }
 
 function SubjectPage() {

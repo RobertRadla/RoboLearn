@@ -1,8 +1,8 @@
 
 
-const docker = {
+const tailwind = {
   
-  name: 'Chemie',
+  name: 'Tailwind',
   
   lessons: [
     
@@ -18,7 +18,10 @@ const docker = {
         },
       ],
     },
-],
+
+
+
+  ],
 }
 
-export default docker
+export default tailwind
