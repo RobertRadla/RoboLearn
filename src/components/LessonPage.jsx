@@ -1,17 +1,23 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { Atom, FlaskConical } from 'lucide-react'
+import { Atom, FlaskConical, Scale, WalletCards, TrendingDown } from 'lucide-react'
 import chemie from '../data/Chemie'
 import docker from '../data/Docker'
+import ucetnictvi from '../data/Ucetnictvi'
 
 // Mapování názvu na komponentu
 const iconMap = {
   Atom: Atom,
   FlaskConical: FlaskConical,
+  Scale: Scale,
+  WalletCards: WalletCards,
+  TrendingDown: TrendingDown,
+
 }
 
 const subjectDataMap = {
   chemie,
   docker,
+  ucetnictvi,
 }
 
 function LessonPage() {

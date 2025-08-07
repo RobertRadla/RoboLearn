@@ -2,10 +2,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import chemie from '../data/Chemie'
 import docker from '../data/Docker'
+import ucetnictvi from '../data/Ucetnictvi'
 
 const subjectDataMap = {
   chemie,
   docker,
+  ucetnictvi,
 }
 
 function shuffleArray(array) {

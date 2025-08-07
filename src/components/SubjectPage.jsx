@@ -2,10 +2,12 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import Subjects from '../data/Subjects'
 import chemie from '../data/Chemie'
 import docker from '../data/Docker'
+import ucetnictvi from '../data/Ucetnictvi'
 
 const subjectDataMap = {
   chemie,
   docker,
+  ucetnictvi,
 }
 
 function SubjectPage() {
