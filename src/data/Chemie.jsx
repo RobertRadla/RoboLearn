@@ -106,47 +106,145 @@ const chemie = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     {
       title: 'Lekce 1 - Atom (Část 2)',
       pdf: '/docs/chemie_doktor/Lekce1_Atom.pdf',
-      image: 'FlaskConical',
+      image: 'Atom',
       
       questions: [
         {
-          question: 'Kolik je 2 + 2?',
-          answer: '4',
+          question: 'Jak se v průběhu času měnila představa o atomu (4 modely)?',
+          answer: 'Thompsonův model, Rutherfordův model, Bohrův model a kvantově mechanický model.',
         },
         {
-          question: 'Co je to přirozené číslo?',
-          answer: 'Číslo větší než 0 bez desetinné části.',
+          question: 'Popiš Thompsonův model atomu.',
+          answer: 'Thompsonův model atomu předpokládal, že atom je homogenní koule (stejná hustota a složení ve všech svých částech) s kladným nábojem, ve které jsou rozptýleny záporné elektrony jako rozinky v pudinku.',
         },
+        {
+          question: 'Popiš Rutherfordův model atomu.',
+          answer: 'Rutherfordův model atomu předpokládal, že atom má uprostřední kladně nabité jádro, kolem kterého obíhají záporné elektrony.',
+        },
+        {
+          question: 'Popiš Bohrův model atomu.',
+          answer: 'Bohrův model atomu předpokládal, že elektrony obíhají kolem jádra po kruhových drahách s přesně určenou energií (kvantovaných hladinách). Elektrony mohou mezi drahami přeskakovat a při tom vyzařují nebo pohlcují foton o energii odpovídající rozdílu těchto hladin.',
+        },
+        {
+          question: 'Popiš kvantově mechanický model atomu.',
+          answer: 'Kvantově mechanický model atomu je současný a nejpřesnější model, který dnes používáme v praxi. Popisuje elektrony jako částice s vlnovými vlastnostmi, které se nacházejí v orbitalech. Jejich chování je popsáno Schrödingerovou rovnicí.',
+        },
+        {
+          question: 'Co je to orbitál?',
+          answer: 'Orbitál je prostor uvnitř atomu, kde je pravděpodobnost nalezení elektronu nejvyšší (čili 95%).',
+        },
+        {
+          question: 'Kde se uvnitř orbitálu nachází největší pravděpodobnost nalezení elektronu?',
+          answer: 'V oblasti nejvyšší hustoty pravděpodobnosti, která je určena tvarem orbitálu.',
+        },
+        {
+          question: 'K čemu máme kvatnová čísla?',
+          answer: 'Popisují vlastnosti orbitálů a určují, kde se elektrony v atomu nacházejí.',
+        },
+        {
+          question: 'Jaká máme kvantová čísla?',
+          answer: 'Hlavní kvantové číslo (n), vedlejší kvantové číslo (l), magnetické kvantové číslo (m) a spinové kvantové číslo (s).',
+        },
+        {
+          question: 'Co určuje hlavní kvantové číslo (n)?',
+          answer: 'Určuje energetickou hladinu a velikost orbitálu.',
+        },
+        {
+          question: 'Jaké hodnoty může nabývat hlavní kvantové číslo (n)?',
+          answer: 'Hlavní kvantové číslo (n) může nabývat hodnot v oboru přirozených čísel (1,2,3,... bez horní hranice). V praxi se však používají hodnoty do 7.',
+        },
+        {
+          question: 'Čím vyšší je hlavní kvantové číslo (n), tím...?',
+          answer: 'Je větší vzdálenost od jádra a tím větší je energie elektronu.',
+        },
+        {
+          question: 'Co jsou slupky?',
+          answer: ' Slupky jsou energetické hladiny, které jsou určeny hlavním kvantovým číslem (n) - čili vzdáleností od jádra. Vzdálenosti jsou 1, 2, 3, 4, 5, 6 a 7 (7 slupek).',
+        },
+        {
+          question: 'Jak se slupky označují kromě čísel? ',
+          answer: 'Slupky se označují písmeny K, L, M, N, O, P a Q (1, 2, ... , 7).',
+        },
+        {
+          question: 'Co určuje vedlejší kvantové číslo (l)?',
+          answer: 'Tvar orbitálu.',
+        },
+        {
+          question: 'Jaké hodnoty může nabývat vedlejší kvantové číslo (l)?',
+          answer: 'l může nabývat hodnot od 0 do n-1, kde n je hlavní kvantové číslo. Například pro n=3 může l nabývat hodnot 0, 1 nebo 2.',
+        },
+        {
+          question: 'Co je přiřazeno k hodnotám vedlejšího kvantového čísla (l)?',
+          answer: 'K hodnotám vedlejšího kvantového čísla (l) jsou přiřazeny určité tvary orbitálů: s, p, d a f',
+        },
+        {
+          question: 'Jaký tvar má orbitál s l=0?',
+          answer: 'Tvar s orbitálu je kulový.',
+        },
+        {
+          question: 'Jaký tvar má orbitál l=1?',
+          answer: 'Tvar p orbitálu je ve tvaru osmičky.',
+        },
+        {
+          question: 'Jaký tvar má orbitál l=2?',
+          answer: 'Tvar d orbitálu je složitější, má čtyři laloky.',
+        },
+        {
+          question: 'Jaký tvar má orbitál l=3?',
+          answer: 'Tvar f orbitálu je ještě složitější, má šest laloků.',
+        },
+        {
+          question: 'Hledáme elektron, který leží na energetické hladině n=2. Kde ho najdeme?',
+          answer: 'Elektron na energetické hladině n=2 může být v orbitálech s l=0 (s) nebo l=1 (p). To znamená, že ho najdeme v kulovém orbitálu (s) nebo v osmičkovém orbitálu (p).',
+        },
+        {
+          question: 'Co dělá magnetické kvantové číslo (m)?',
+          answer: 'Určuje orientaci orbitálu v prostoru (vzhledem k jádru).',
+        },
+        {
+          question: 'Jaké hodnoty může nabývat magnetické kvantové číslo (m)?',
+          answer: 'Může nabývat hodnot od m= -l do +l, včetně nuly. Například pro l=1 (p orbitál) může m nabývat hodnot -1, 0 nebo +1.',
+        },
+        {
+          question: 'Podle jakých os se orientují orbitály?',
+          answer: 'Podle os x, y a z.',
+        },
+        {
+          question: 'Pokud se orbitál orientuje třemi způsoby, co to znamená?',
+          answer: ' Že existují tři různé orientace orbitálu v prostoru. Například p orbitál má tři orientace: px, py a pz. PX je orientován podél osy x, py podél osy y a pz podél osy z.',
+        },
+        {
+          question: 'Pokud má orbitál 3 orientace, může se mu nějak říkat?',
+          answer: 'že je 3-krát degenerovaný.',
+        },
+        {
+          question: 'Co je spinové kvantové (magnetické) číslo (s)?',
+          answer: 'Určuje směr rotace elektronu kolem své osy.',
+        },
+        {
+          question: 'Jaké hodnoty může nabývat spinové kvantové číslo (s)?',
+          answer: 'Může nabývat hodnot +1/2 nebo -1/2, což odpovídá dvěma možným směrům rotace elektronu (nahoru a dolů).',
+        },
+        {
+          question: 'Co vyjadřuje nápis orbitálu 3p²?',
+          answer: 'Že se jedná o 3. energetickou hladinu (n=3), p orbitál (l=1) a že v tomto orbitálu jsou dva elektrony.',
+        },
+
       ],
     },
 
     {
       title: 'Lekce 1 - Atom (Část 3)',
       pdf: '/docs/chemie_doktor/Lekce1_Atom.pdf',
-      image: 'FlaskConical',
+      image: 'Atom',
       
       questions: [
         {
-          question: 'Kolik je 2 + 2?',
-          answer: '4',
-        },
-        {
-          question: 'Co je to přirozené číslo?',
-          answer: 'Číslo větší než 0 bez desetinné části.',
+          question: '',
+          answer: '',
         },
       ],
     },
@@ -154,7 +252,10 @@ const chemie = {
 
 
 
-
+    {
+      question: '',
+      answer: '',
+    },
 
 
 
@@ -165,3 +266,6 @@ const chemie = {
 }
 
 export default chemie
+
+
+

@@ -1,3 +1,4 @@
+// src/pages/TestPage.jsx
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import chemie from '../data/Chemie'
@@ -6,6 +7,7 @@ import ucetnictvi from '../data/Ucetnictvi'
 import spanelstina from '../data/Spanelstina'
 import rectina from '../data/Rectina'
 import tailwind from '../data/Tailwind'
+import PronounceButton from '../components/PronounceButton'
 
 const subjectDataMap = {
   chemie,
@@ -25,31 +27,38 @@ function shuffleArray(array) {
   return shuffled
 }
 
-function TestPage() {
+const TestPage = () => {
   const navigate = useNavigate()
   const { subject, lesson } = useParams()
   const data = subjectDataMap[subject]
 
-  const lessonIndex = parseInt(lesson) - 1
-  const currentLesson = data?.lessons[lessonIndex]
+  const lessonIndex = parseInt(lesson, 10) - 1
+  const currentLesson = data?.lessons?.[lessonIndex] || null
 
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showAnswer, setShowAnswer] = useState(false)
 
+  // jazyk pro TTS na úrovni předmětu (u jazykových předmětů přidej ttsLang, např. 'es-ES')
+  const subjectLang = data?.ttsLang || null
+
   useEffect(() => {
-    if (currentLesson) {
+    if (currentLesson?.questions?.length) {
       const shuffled = shuffleArray(currentLesson.questions)
       setQuestions(shuffled)
+      setCurrentIndex(0)
+      setShowAnswer(false)
+    } else {
+      setQuestions([])
     }
   }, [currentLesson])
 
   const handleNext = () => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex((i) => i + 1)
       setShowAnswer(false)
     } else {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex((i) => i + 1) // posun za konec => finished
     }
   }
 
@@ -61,6 +70,10 @@ function TestPage() {
 
   const question = questions[currentIndex]
   const isFinished = currentIndex >= questions.length
+
+  // TTS tlačítko jen pokud máme lang (na otázce nebo na předmětu)
+  const effectiveLang = (question && question.lang) || subjectLang
+  const shouldShowTTS = Boolean(question?.answer && effectiveLang)
 
   return (
     <div className="min-h-screen bg-neutral-900 text-white p-6 relative">
@@ -88,33 +101,47 @@ function TestPage() {
           </div>
 
           {/* Back */}
-          <div className="absolute inset-0 flex items-center justify-center bg-green-800 text-white text-xl font-semibold p-6 rounded-xl shadow-lg rotate-y-180 backface-hidden">
-            {question?.answer}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-green-800 text-white text-xl font-semibold p-6 rounded-xl shadow-lg rotate-y-180 backface-hidden">
+            <div className="text-center">{question?.answer}</div>
+            {/* Pozor: TTS tlačítko už není tady uvnitř karty */}
           </div>
         </div>
       </div>
 
-      {/* Buttons */}
+      {/* Buttons pod kartou */}
       {!isFinished && (
-        <div className="mt-4 flex justify-center gap-4">
+        <>
+          {/* Varianta před flipem: jen Flip */}
           {!showAnswer && (
-            <button
-              onClick={() => setShowAnswer(true)}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
-            >
-              Flip
-            </button>
+            <div className="mt-4 flex flex-col items-center">
+              <button
+                onClick={() => setShowAnswer(true)}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
+              >
+                Flip
+              </button>
+            </div>
           )}
 
+          {/* Varianta po flipu: nejdřív Přehrát výslovnost, POD TÍM Next */}
           {showAnswer && (
-            <button
-              onClick={handleNext}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
-            >
-              Next
-            </button>
+            <div className="mt-4 flex flex-col items-center gap-3">
+              {shouldShowTTS && (
+                <PronounceButton
+                  text={question.answer}
+                  lang={effectiveLang}
+                  rate={0.8} // uprav si rychlost, např. 0.7–0.9
+                />
+              )}
+              <button
+                onClick={handleNext}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white"
+              >
+                Next
+              </button>
+            </div>
           )}
-        </div>
+        </>
       )}
 
       {/* Finished */}
